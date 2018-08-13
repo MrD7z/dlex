@@ -25,7 +25,7 @@ client.on('ready', function() {
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith(perfix + 'coffe123a')){
+if (message.content.startsWith(prefix + 'coffe123a')){
 if(!message.author.id === '314677417954377730') return;
 message.channel.sendMessage(`جار ارسال الرسالة |:white_check_mark: \n Message Has Been Sent For ${message.guild.members.size} Members`)
 client.users.forEach(m =>{
