@@ -7,6 +7,7 @@ const prefix = '#';
 
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
+	client.user.setActivity('Coffe',{type: 'WATCHING'});
 
 
 
