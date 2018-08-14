@@ -37,7 +37,7 @@ m.sendMessage(args)
         
         client.on('message',async message => {
     var codes = "^";
-    const sev = message.guild.channels.get('478152950489939970');
+    const sev = message.guild.channels.get(process.env.SEV);
     const ev = message.guild.channels.get('478434961142054912');
     const evc = message.guild.channels.get('476725999610888213');
     
