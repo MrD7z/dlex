@@ -34,6 +34,95 @@ m.sendMessage(args)
 }
 });
 
+        
+        client.on('message',async message => {
+    var codes = "^";
+    const sev = message.guild.channels.get('478152950489939970');
+    const ev = message.guild.channels.get('478434961142054912');
+    const evc = message.guild.channels.get('476725999610888213');
+    
+              if(message.content.startsWith(codes + "start")) {
+            if(!message.guild.member(message.author).hasPermission('MANAGE_GUILD')) return ;
 
+                  await message.channel.send(`اكتب ما تريد ان تقول`).then(e => {
+    let filter = m => m.author.id === message.author.id 
+    
+    
+    
+      var text = '';
+        let sugsa = message.channel.awaitMessages(filter, { max: 1, time: 60000})
+          .then(co => {
+            text = co.first().content
+            co.first().delete()
+            
+            
+            
+            var reg = '';
+                e.edit('اكتب الحالة')
+                   let sugsa = message.channel.awaitMessages(filter, { max: 1, time: 60000})
+                 .then(co => {
+                   reg = co.first().content
+                     co.first().delete()
+                     
+                       
+              var time = '';
+                e.edit('اكتب االمدة')
+                   let sugsa = message.channel.awaitMessages(filter, { max: 1, time: 60000})
+                 .then(co => {
+                   time = co.first().content
+                     co.first().delete()
+                       e.delete()
+                       
+                 
+            message.channel.send(`**هل أنت متأكد ؟ **`).then(msg => {
+      
+                msg.react('✅')
+                 .then(() => msg.react('❌'))
+                 .then(() =>msg.react('✅'))
+             
+                 let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+                  let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+             
+                 let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+                 let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+
+             
+                        reaction1.on("collect", r => {
+                            msg.delete();
+                              sev.send(`${text} \n ${reg}`).then(m => {
+                             m.react('❤');
+                            setTimeout(() => {
+                             
+                          let users = m.reactions.get("❤").users;
+                          let list = users.array().filter(u => u.id !== client.user.id);
+                          let gFilter = list[Math.floor(Math.random() * list.length) + 0]
+                          let gFilters = list[Math.floor(Math.random() * list.length) + 0]
+                           
+                         m.delete();
+                          ev.send('Players : '+ `\n${gFilter} \n${gFilters}`)
+                          evc.send('everyone \n**بدينا الفعالية حياكم**');
+                         },time * 60000);
+                      });
+                 })
+                 
+               reaction2.on("collect", r => {
+                     msg.delete();
+                     message.channel.send(`Canceled :v:`).then(m => m.delete(10000));
+              
+              })
+                 
+            })      
+                 })
+                 })
+          })
+                  })
+              }
+        });
+                  
+              
+                 
+            
+              
+        
 
 client.login(process.env.TOKEN);
