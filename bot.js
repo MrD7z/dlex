@@ -121,7 +121,7 @@ m.sendMessage(args)
                   
               
                  
-   let profile = {};
+   const profile = {};
 client.on("message", message => {
  
   if (message.author.bot) return;
